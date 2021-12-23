@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="game view2">
+    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="game view3">
+      <change afterPath="$PROJECT_DIR$/GameController/GameController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameController/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/backGround.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/AssetsConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/AssetsConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Food/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/Food/Food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snake/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/Snake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/GameConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/GameConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Food/Food.py" beforeDir="false" afterPath="$PROJECT_DIR$/Food/Food.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Game_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/Game_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/Screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/FoodBlock.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/FoodBlock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/SnakeBlock.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/SnakeBlock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/WallBlock.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/WallBlock.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +91,9 @@
       <updated>1640172774490</updated>
       <workItem from="1640172775725" duration="2099000" />
       <workItem from="1640246266563" duration="1424000" />
-      <workItem from="1640247912681" duration="9008000" />
+      <workItem from="1640247912681" duration="11121000" />
+      <workItem from="1640259623479" duration="145000" />
+      <workItem from="1640259789297" duration="2495000" />
     </task>
     <task id="LOCAL-00001" summary="create main">
       <created>1640173387919</created>
@@ -107,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640254192049</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="game view3">
+      <created>1640257196371</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640257196371</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +146,8 @@
     <MESSAGE value="create main" />
     <MESSAGE value="game view1" />
     <MESSAGE value="game view2" />
-    <option name="LAST_COMMIT_MESSAGE" value="game view2" />
+    <MESSAGE value="game view3" />
+    <option name="LAST_COMMIT_MESSAGE" value="game view3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -147,18 +164,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>6</line>
+          <line>7</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/View/Screen.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/View/Screen.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
@@ -174,6 +181,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/snake_game$main.coverage" NAME="main Coverage Results" MODIFIED="1640257175969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake_game$main.coverage" NAME="main Coverage Results" MODIFIED="1640261830849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

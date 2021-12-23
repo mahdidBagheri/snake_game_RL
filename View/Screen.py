@@ -1,22 +1,25 @@
 import pygame
-from Config import GameConfig
-from Snake.Snake import Snake
-from Food.Food import Food
+from Config import GameConfig, AssetsConfig
+
 
 class Screen:
-    def __init__(self):
+    def __init__(self, snake, food):
         self.screen = pygame.display.set_mode((GameConfig.Screen_Width,GameConfig.Screen_Hight))
-        self.snake = Snake()
-        self.food = Food()
-        self.drawIcons()
+        self.background = pygame.image.load(AssetsConfig.backGroundAddress)
+        self.drawBackGround()
+        self.drawIcons(snake, food)
+        pygame.display.update()
 
-    def drawIcons(self):
-        self.drawSnake()
-        self.drawFood()
+    def drawBackGround(self):
+        self.screen.blit(self.background,(0,0))
 
-    def drawSnake(self):
-        for coor in self.snake.coordinates:
-            self.screen.blit(self.snake.icon, coor)
+    def drawIcons(self,snake, food):
+        self.drawSnake(snake)
+        self.drawFood(food)
 
-    def drawFood(self):
-        self.screen.blit(self.food.icon, self.food.coordinate)
+    def drawSnake(self, snake):
+        for coor in snake.coordinates:
+            self.screen.blit(snake.icon, coor)
+
+    def drawFood(self, food):
+        self.screen.blit(food.icon, food.coordinate)
