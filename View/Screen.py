@@ -14,11 +14,14 @@ class Screen:
         self.screen.blit(self.background,(0,0))
 
     def drawIcons(self,snake, food):
+        self.drawBackGround()
         self.drawSnake(snake)
         self.drawFood(food)
+        #self.drawWalls()
 
     def drawSnake(self, snake):
-        for coor in snake.coordinates:
+        self.screen.blit(snake.head_icon, snake.coordinates[0])
+        for coor in snake.coordinates[1:]:
             self.screen.blit(snake.icon, coor)
 
     def drawFood(self, food):
