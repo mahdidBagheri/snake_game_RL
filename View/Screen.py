@@ -1,13 +1,14 @@
 import pygame
 from Config import GameConfig, AssetsConfig
-
+from Wall.Wall import Wall
 
 class Screen:
     def __init__(self, snake, food):
         self.screen = pygame.display.set_mode((GameConfig.Screen_Width,GameConfig.Screen_Hight))
         self.background = pygame.image.load(AssetsConfig.backGroundAddress)
-        self.drawBackGround()
+        self.walls = Wall()
         self.drawIcons(snake, food)
+
         pygame.display.update()
 
     def drawBackGround(self):
@@ -17,7 +18,11 @@ class Screen:
         self.drawBackGround()
         self.drawSnake(snake)
         self.drawFood(food)
-        #self.drawWalls()
+        self.drawWalls()
+
+    def drawWalls(self):
+        for wall_coor in self.walls.coordinates:
+            self.screen.blit(self.walls.icon, wall_coor)
 
     def drawSnake(self, snake):
         self.screen.blit(snake.head_icon, snake.coordinates[0])
