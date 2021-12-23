@@ -25,9 +25,10 @@ class Screen:
             self.screen.blit(self.walls.icon, wall_coor)
 
     def drawSnake(self, snake):
-        self.screen.blit(snake.head_icon, snake.coordinates[0])
         for coor in snake.coordinates[1:]:
             self.screen.blit(snake.icon, coor)
+
+        self.screen.blit(snake.head_icon, snake.coordinates[0])
 
     def drawFood(self, food):
         self.screen.blit(food.icon, food.coordinate)

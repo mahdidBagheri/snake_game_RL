@@ -56,73 +56,73 @@ class Snake:
 
 
     def move_left_left(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]-1*self.scale,(self.coordinates)[0][1])
 
 
     def move_up_up(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]-1*self.scale)
 
 
     def move_right_right(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]+1*self.scale,(self.coordinates)[0][1])
 
 
     def move_down_down(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]+1*self.scale)
 
 
     def move_left_up(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]-1*self.scale)
 
 
     def move_left_down(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]+1*self.scale)
 
 
     def move_right_down(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]+1*self.scale)
 
 
     def move_right_up(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0],(self.coordinates)[0][1]-1*self.scale)
 
 
     def move_up_right(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]+1*self.scale,(self.coordinates)[0][1])
 
 
     def move_up_left(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i-1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]-1*self.scale,(self.coordinates)[0][1])
 
 
     def move_down_right(self):
-        for i in range(1,len(self.coordinates)):
+        for i in range(len(self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i - 1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]+1*self.scale,(self.coordinates)[0][1])
 
 
     def move_down_left(self):
-        for i in range(1,len( self.coordinates)):
+        for i in range(len( self.coordinates)-1,0,-1):
             (self.coordinates)[i] = self.coordinates[i - 1]
         (self.coordinates)[0] = ((self.coordinates)[0][0]-1*self.scale,(self.coordinates)[0][1])
 
@@ -137,3 +137,8 @@ class Snake:
         if((s1 == "up" and s2 == "down") or (s1 == "down" and s2 == "up") ):
             return True
         return False
+
+    def grow(self):
+        t = tuple(map(lambda i, j: i - j, self.coordinates[-2], self.coordinates[-1]))
+        newBlock = tuple(map(lambda i, j: j - i, t, self.coordinates[-1]))
+        self.coordinates.append(newBlock)

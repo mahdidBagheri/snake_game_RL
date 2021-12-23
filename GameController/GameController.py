@@ -37,10 +37,11 @@ class GameController:
         if(self.snake.coordinates[0] == self.food.coordinate):
             self.score += 1
             self.food.switch_coordinate(self.snake)
+            self.snake.grow()
             print("score: " + str(self.score))
             return False
 
-        elif(self.snake.coordinates[0] in self.game_view.screen.walls.coordinates):
+        elif(self.snake.coordinates[0] in (self.game_view.screen.walls.coordinates + self.snake.coordinates[1:])):
             return True
 
     def endGame(self):
