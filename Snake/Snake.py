@@ -1,6 +1,5 @@
-import Config.GameConfig
+from Config import GameConfig , AssetsConfig
 import pygame
-import Config.AssetsConfig
 
 class Snake:
     def __init__(self):
