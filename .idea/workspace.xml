@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="score and end game added">
+    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="snake self collision handeled. game almost finished">
+      <change afterPath="$PROJECT_DIR$/AI/AIGameController/AIGameController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/AIGameController/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/Agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/Helper/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/Helper/helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI/model/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Config/AIConfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Snake_Game_AI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameController/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameController/GameController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/Snake.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/Screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_manual.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +40,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/main.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/main_manual.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="22dgFOfEGfMWoF0EmwfEyXCJtAL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -52,8 +61,30 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Agent">
+    <configuration name="Agent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Mahdi\AppData\Local\Programs\Python\Python38\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AI" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AI/Agent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_manual (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -66,7 +97,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_manual.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_manual" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Mahdi\AppData\Local\Programs\Python\Python38\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="F:\edu\projects\snake_game\main_manual.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -77,7 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Agent" />
+        <item itemvalue="Python.main_manual (1)" />
+        <item itemvalue="Python.main_manual" />
       </list>
     </recent_temporary>
   </component>
@@ -93,7 +148,7 @@
       <workItem from="1640246266563" duration="1424000" />
       <workItem from="1640247912681" duration="11121000" />
       <workItem from="1640259623479" duration="145000" />
-      <workItem from="1640259789297" duration="18667000" />
+      <workItem from="1640259789297" duration="33326000" />
     </task>
     <task id="LOCAL-00001" summary="create main">
       <created>1640173387919</created>
@@ -144,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640277454459</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="snake self collision handeled. game almost finished">
+      <created>1640281218781</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1640281218781</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,45 +233,12 @@
     <MESSAGE value="game view4 - can create board" />
     <MESSAGE value="game view5 - now snake can move and change direction" />
     <MESSAGE value="score and end game added" />
-    <option name="LAST_COMMIT_MESSAGE" value="score and end game added" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Snake/Snake.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="snake self collision handeled. game almost finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="snake self collision handeled. game almost finished" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/snake_game$main_manual__1_.coverage" NAME="main_manual (1) Coverage Results" MODIFIED="1640300287069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake_game$Agent.coverage" NAME="Agent Coverage Results" MODIFIED="1640300359024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AI" />
     <SUITE FILE_PATH="coverage/snake_game$main.coverage" NAME="main Coverage Results" MODIFIED="1640280773671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

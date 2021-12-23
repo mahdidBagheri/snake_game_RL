@@ -1,5 +1,6 @@
 from Config import GameConfig , AssetsConfig
 import pygame
+from Utils.Utils import Utils
 
 class Snake:
     def __init__(self):
@@ -9,6 +10,7 @@ class Snake:
         self.direction = "left"
         self.move_direction = "left"
         self.coordinates = GameConfig.Snake_Initial_Coordinate
+        self.walls = Utils.border_coordinates()
 
 
     def move(self):
@@ -142,3 +144,55 @@ class Snake:
         t = tuple(map(lambda i, j: i - j, self.coordinates[-2], self.coordinates[-1]))
         newBlock = tuple(map(lambda i, j: j - i, t, self.coordinates[-1]))
         self.coordinates.append(newBlock)
+
+    def detect_danger(self):
+        danger = [0,0,0]
+        (x, y) = self.coordinates[0]
+
+        if(self.direction == "left"):
+            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[0] = 1
+
+            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
+                danger[1] = 1
+
+            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
+                danger[2] = 1
+
+        elif(self.direction == "right"):
+            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[0] = 1
+            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
+                danger[1] = 1
+            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
+                danger[2] = 1
+
+        elif(self.direction == "up"):
+            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
+                danger[0] = 1
+            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[1] = 1
+            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[2] = 1
+
+        elif(self.direction == "down"):
+            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
+                danger[0] = 1
+            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[1] = 1
+            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
+                danger[2] = 1
+
+        return danger
+
+    def get_direction(self):
+        dir = [0,0,0,0]
+        if(self.direction == "left"):
+            dir[0] = 1
+        elif(self.direction == "right"):
+            dir[1] = 1
+        elif(self.direction == "up"):
+            dir[2] = 1
+        elif(self.direction == "down"):
+            dir[3] = 1
+        return dir

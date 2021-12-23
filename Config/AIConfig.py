@@ -1,0 +1,10 @@
+gamma = 0.9
+epsilon = 80
+LR = 0.001
+Max_Memory = 100_000
+batch_size = 1000
+reward = 10
+punish = -10
+input_size = 11
+hidden_size = 256
+output_size = 3

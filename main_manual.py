@@ -16,5 +16,4 @@ if(__name__ == "__main__"):
             game_controller.endGame()
             running = False
 
-
         game_controller.wait()
