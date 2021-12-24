@@ -20,16 +20,18 @@ class Agent:
         self.trainer = QTrainer(self.model, AIConfig.LR, AIConfig.gamma, )
 
     def get_action(self,state):
-        self.epsilon = 80 - self.n_game
+        self.epsilon = AIConfig.epsilon - self.n_game
         final_move = [0,0,0]
-        if(random.randint(0, 200) < self.epsilon):
+        if(random.randint(0, AIConfig.epsilon*3) < self.epsilon):
             move = random.randint(0,2)
             final_move[move] = 1
+
         else:
             state0 = torch.tensor(state, dtype=torch.float)
             prediction = self.model(state0)
             move = torch.argmax(prediction).item()
             final_move[move] = 1
+
 
         return final_move
 
@@ -74,24 +76,25 @@ def train():
         agent.remember(old_state, final_move, new_state, reward, isEnd)
 
         if isEnd:
-            print(len(game_controller.snake.coordinates))
+            #print(len(game_controller.snake.coordinates))
             game_controller.reset()
 
             agent.n_game += 1
             agent.train_long_memory()
 
-            """
+
             if(score > record):
                 record = score
                 agent.model.save()
             
             print("Game: ", agent.n_game, "score: " , score , "Record: " ,record )
             plot_score.append(score)
+            total_score += score
             mean_score = total_score / agent.n_game
             mean_plot_score.append(mean_score)
             plot(plot_score, mean_plot_score)
-            """
-        print(isEnd)
+
+
         game_controller.wait()
 
 if(__name__ == '__main__'):

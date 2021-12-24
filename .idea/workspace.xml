@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="first imp of RL">
+    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="2nd imp of RL - pygame window stops responding">
+      <change afterPath="$PROJECT_DIR$/model/model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AI/AIGameController/AIGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/AIGameController/AIGameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AI/Agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AI/Helper/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/Helper/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AI/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/model/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/AIConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/AIConfig.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/GameConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/GameConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snake/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/Snake.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Game_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/Game_View.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -59,7 +59,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -178,7 +178,8 @@
       <workItem from="1640246266563" duration="1424000" />
       <workItem from="1640247912681" duration="11121000" />
       <workItem from="1640259623479" duration="145000" />
-      <workItem from="1640259789297" duration="38449000" />
+      <workItem from="1640259789297" duration="38499000" />
+      <workItem from="1640332578473" duration="7437000" />
     </task>
     <task id="LOCAL-00001" summary="create main">
       <created>1640173387919</created>
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640300455625</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2nd imp of RL - pygame window stops responding">
+      <created>1640305623998</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1640305623998</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,20 +280,16 @@
     <MESSAGE value="score and end game added" />
     <MESSAGE value="snake self collision handeled. game almost finished" />
     <MESSAGE value="first imp of RL" />
-    <option name="LAST_COMMIT_MESSAGE" value="first imp of RL" />
+    <MESSAGE value="2nd imp of RL - pygame window stops responding" />
+    <option name="LAST_COMMIT_MESSAGE" value="2nd imp of RL - pygame window stops responding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AI/Helper/helper.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Agent.py</url>
-          <line>77</line>
-          <option name="timeStamp" value="74" />
+          <line>67</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -293,7 +297,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/snake_game$main_manual__1_.coverage" NAME="main_manual (1) Coverage Results" MODIFIED="1640300287069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake_game$Agent.coverage" NAME="Agent Coverage Results" MODIFIED="1640300611218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AI" />
-    <SUITE FILE_PATH="coverage/snake_game$Agent__1_.coverage" NAME="Agent (1) Coverage Results" MODIFIED="1640305562329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake_game$Agent__1_.coverage" NAME="Agent (1) Coverage Results" MODIFIED="1640340076732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake_game$main.coverage" NAME="main Coverage Results" MODIFIED="1640280773671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
