@@ -7,10 +7,10 @@ class Snake:
         self.scale = GameConfig.scale
         self.icon = pygame.image.load(AssetsConfig.SnakeBlockAddress)
         self.head_icon = pygame.image.load(AssetsConfig.SnakeHeadBlockAddress)
-        self.direction = "left"
-        self.move_direction = "left"
-        self.coordinates = GameConfig.Snake_Initial_Coordinate
-        self.walls = Utils.border_coordinates()
+        self.direction = "right"
+        self.move_direction = "right"
+        self.coordinates = [(int(GameConfig.Game_Width/2)*self.scale,int(GameConfig.Game_Hight/2)*self.scale), (int(GameConfig.Game_Width/2-1)*self.scale,int(GameConfig.Game_Hight/2)*self.scale)]
+        self.walls = Utils.border_coordinates(self)
 
 
     def move(self):

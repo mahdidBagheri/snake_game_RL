@@ -38,10 +38,10 @@ class QTrainer:
         reward = torch.tensor(reward, dtype=torch.float)
 
         if( len(state.shape) == 1):
-            state = torch.usqueeze(state, 0)
-            action = torch.usqueeze(action, 0)
-            new_state = torch.usqueeze(new_state, 0)
-            reward = torch.usqueeze(reward, 0)
+            state = torch.unsqueeze(state, 0)
+            action = torch.unsqueeze(action, 0)
+            new_state = torch.unsqueeze(new_state, 0)
+            reward = torch.unsqueeze(reward, 0)
             isEnd = (isEnd,)
 
         pred = self.model(state)

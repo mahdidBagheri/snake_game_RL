@@ -1,10 +1,11 @@
 from Config import AIConfig
 from collections import deque
-from AIGameController.AIGameController import AIGameController
+from AI.AIGameController.AIGameController import AIGameController
 import torch
-from model import Linear_QNet, QTrainer
+from AI.model.model import Linear_QNet, QTrainer
 import random
-from Helper.helper import plot
+from AI.Helper.helper import plot
+import pygame
 
 class Agent:
 
@@ -58,33 +59,40 @@ def train():
     game_controller = AIGameController()
 
     while True:
-        old_state = game_controller.getState()
+        pygame.display.update()
+
+        old_state = game_controller.get_state()
 
         final_move = agent.get_action(old_state)
 
         reward, isEnd, score = game_controller.move_one_step(final_move)
 
-        new_state = game_controller.getState()
+        new_state = game_controller.get_state()
 
         agent.train_short_memory(old_state, final_move, new_state, reward, isEnd)
 
+        agent.remember(old_state, final_move, new_state, reward, isEnd)
+
         if isEnd:
+            print(len(game_controller.snake.coordinates))
             game_controller.reset()
 
             agent.n_game += 1
             agent.train_long_memory()
 
+            """
             if(score > record):
                 record = score
-
                 agent.model.save()
-
-            print("Game: ", agent.n_game, "score: " , "Record: " ,record )
+            
+            print("Game: ", agent.n_game, "score: " , score , "Record: " ,record )
             plot_score.append(score)
             mean_score = total_score / agent.n_game
             mean_plot_score.append(mean_score)
             plot(plot_score, mean_plot_score)
-
+            """
+        print(isEnd)
+        game_controller.wait()
 
 if(__name__ == '__main__'):
     train()
