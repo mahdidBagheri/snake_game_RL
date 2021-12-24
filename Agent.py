@@ -6,6 +6,8 @@ from AI.model.model import Linear_QNet, QTrainer
 import random
 from AI.Helper.helper import plot
 import pygame
+import math
+import numpy as np
 
 class Agent:
 
@@ -16,13 +18,14 @@ class Agent:
         self.batch_size = AIConfig.batch_size
         self.lr = AIConfig.LR
         self.memory =deque(maxlen=AIConfig.Max_Memory)
-        self.model = Linear_QNet(AIConfig.input_size, AIConfig.hidden_size, AIConfig.output_size)
+        self.model = Linear_QNet(AIConfig.input_size, AIConfig.hidden1_size, AIConfig.hidden2_size, AIConfig.output_size)
         self.trainer = QTrainer(self.model, AIConfig.LR, AIConfig.gamma, )
 
     def get_action(self,state):
-        self.epsilon = AIConfig.epsilon - self.n_game
+        p = random.random() * math.exp(-self.n_game*(AIConfig.epsilon_decay))
+        #print(math.exp(-self.n_game*(AIConfig.epsilon_decay)))
         final_move = [0,0,0]
-        if(random.randint(0, AIConfig.epsilon*3) < self.epsilon):
+        if(p > (1-AIConfig.random_move_prob)):
             move = random.randint(0,2)
             final_move[move] = 1
 
@@ -39,7 +42,8 @@ class Agent:
         self.memory.append((state, action, reward, next_state, done))
 
     def train_short_memory(self, state, action, reward, next_state, done):
-        self.trainer.train_step(state, action, reward, next_state, done)
+        loss = self.trainer.train_step(state, action, reward, next_state, done)
+        return loss
 
     def train_long_memory(self):
         if(len(self.memory) > self.batch_size):
@@ -55,6 +59,8 @@ class Agent:
 def train():
     plot_score = []
     mean_plot_score = []
+    loss_list = []
+    loss_mean = []
     total_score = 0
     record = 0
     agent = Agent()
@@ -71,11 +77,12 @@ def train():
 
         new_state = game_controller.get_state()
 
-        agent.train_short_memory(old_state, final_move, new_state, reward, isEnd)
-
+        loss = agent.train_short_memory(old_state, final_move, new_state, reward, isEnd)
+        loss_list.append(loss.item())
         agent.remember(old_state, final_move, new_state, reward, isEnd)
 
         if isEnd:
+            loss_mean.append(np.mean(loss_list))
             #print(len(game_controller.snake.coordinates))
             game_controller.reset()
 
@@ -92,7 +99,8 @@ def train():
             total_score += score
             mean_score = total_score / agent.n_game
             mean_plot_score.append(mean_score)
-            plot(plot_score, mean_plot_score)
+            plot(mean_plot_score, "score.png")
+            plot(loss_mean, "ssloss.png")
 
 
         game_controller.wait()

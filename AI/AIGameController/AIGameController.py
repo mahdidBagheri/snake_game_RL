@@ -4,6 +4,7 @@ from Food.Food import Food
 from Config import GameConfig , AssetsConfig, AIConfig
 import time
 import pygame
+import math
 
 class AIGameController:
     def __init__(self):
@@ -13,6 +14,7 @@ class AIGameController:
         self.score = 0
         self.frame_iteration = 0
         self.negative_step = AIConfig.negative_step
+        self.scale = GameConfig.scale
 
     def move_one_step(self,move_dir):
         self.negative_step += AIConfig.negative_step_growth
@@ -59,9 +61,16 @@ class AIGameController:
             self.score += AIConfig.punish
             reward = AIConfig.punish
             return reward, True, self.score
+
+        elif(len(self.snake.coordinates) * AIConfig.max_step_coef < self.frame_iteration ):
+            self.score += AIConfig.punish
+            reward = AIConfig.punish
+            return reward, True, self.score
+
         else:
-            self.score += self.negative_step
+            #self.score += self.negative_step
             reward = self.negative_step
+            reward = 0
 
             return reward, False, self.score
 
@@ -69,9 +78,36 @@ class AIGameController:
     def get_state(self):
         state = []
         state += self.snake.detect_danger()
-        state += self.snake.get_direction()
+        #state += self.snake.get_direction()
         state += self.get_food_direction()
+        state += self.get_food_distance()
+        #state += self.get_frame_iteration()
         return state
+
+    def get_frame_iteration(self):
+        fr_list = [0,0,0,0,0,0,0,0,0,0,0]
+        for i in range(len(fr_list)):
+            fr_list[i] = self.frame_iteration % (2**i)
+        return fr_list
+
+    def get_food_distance(self):
+
+        dis = abs(self.snake.coordinates[0][0] - self.food.coordinate[0])/self.scale + abs(self.snake.coordinates[0][1] - self.food.coordinate[1])/self.scale
+        """
+        dis_list = [0, 0, 0, 0]
+        dis = int(dis)
+        dis_list[0] = dis % 2
+        dis = int(dis/2)
+        dis_list[1] = dis % 2
+        dis = int(dis/2)
+        dis_list[2] = dis % 2
+        dis = int(dis/2)
+        dis_list[3] = dis % 2
+        """
+
+        dis_list=[int(dis)]
+        return dis_list
+
 
     def get_food_direction(self):
         dir = [0,0,0,0]

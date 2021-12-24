@@ -5,6 +5,8 @@ from Utils.Utils import Utils
 class Snake:
     def __init__(self):
         self.scale = GameConfig.scale
+        self.game_width = GameConfig.Game_Width
+        self.game_hight = GameConfig.Game_Hight
         self.icon = pygame.image.load(AssetsConfig.SnakeBlockAddress)
         self.head_icon = pygame.image.load(AssetsConfig.SnakeHeadBlockAddress)
         self.direction = "right"
@@ -150,11 +152,14 @@ class Snake:
         (x, y) = self.coordinates[0]
 
         if(self.direction == "left"):
-            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[0] = 1
 
-            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
-                danger[1] = 1
+            for i in range(self.game_width):
+                if((x-i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[0] = i
+
+            for i in range(self.game_hight):
+                if((x,y-i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[1] = 1
 
             if((x,y+self.scale) in self.coordinates[1:] + self.walls):
                 danger[2] = 1
