@@ -22,10 +22,12 @@ class Agent:
         self.trainer = QTrainer(self.model, AIConfig.LR, AIConfig.gamma, )
 
     def get_action(self,state):
-        p = random.random() * math.exp(-self.n_game*(AIConfig.epsilon_decay))
+        p = random.random()
+        rnd_move_prob = math.exp(-self.n_game*(AIConfig.epsilon_decay)) * AIConfig.random_move_prob + 0.005
         #print(math.exp(-self.n_game*(AIConfig.epsilon_decay)))
+        #p = random.random()
         final_move = [0,0,0]
-        if(p > (1-AIConfig.random_move_prob)):
+        if(p < rnd_move_prob):
             move = random.randint(0,2)
             final_move[move] = 1
 
@@ -36,7 +38,7 @@ class Agent:
             final_move[move] = 1
 
 
-        return final_move
+        return final_move, rnd_move_prob
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
@@ -71,7 +73,7 @@ def train():
 
         old_state = game_controller.get_state()
 
-        final_move = agent.get_action(old_state)
+        final_move, p = agent.get_action(old_state)
 
         reward, isEnd, score = game_controller.move_one_step(final_move)
 
@@ -82,6 +84,7 @@ def train():
         agent.remember(old_state, final_move, new_state, reward, isEnd)
 
         if isEnd:
+
             loss_mean.append(np.mean(loss_list))
             #print(len(game_controller.snake.coordinates))
             game_controller.reset()
@@ -94,7 +97,7 @@ def train():
                 record = score
                 agent.model.save()
             
-            print("Game: ", agent.n_game, "score: " , score , "Record: " ,record )
+            print("Game: ", agent.n_game, "score: " , score , "Record: " ,record, "p: " , p )
             plot_score.append(score)
             total_score += score
             mean_score = total_score / agent.n_game

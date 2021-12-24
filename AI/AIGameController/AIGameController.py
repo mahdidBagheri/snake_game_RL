@@ -62,15 +62,17 @@ class AIGameController:
             reward = AIConfig.punish
             return reward, True, self.score
 
-        elif(len(self.snake.coordinates) * AIConfig.max_step_coef < self.frame_iteration ):
-            self.score += AIConfig.punish
-            reward = AIConfig.punish
+        elif((len(self.snake.coordinates)/1.7)**2 * (AIConfig.max_step_per_length) < self.frame_iteration ):
+            #self.score += AIConfig.punish
+            reward = AIConfig.long_stay_punish
             return reward, True, self.score
 
         else:
-            #self.score += self.negative_step
-            reward = self.negative_step
-            reward = 0
+            [dist1, dist2] = self.get_food_distance()
+            dist1 = abs(dist1-0.5)
+            dist2 = abs(dist2-0.5)
+            reward= 0.5/(dist1 + dist2)
+
 
             return reward, False, self.score
 
@@ -79,7 +81,7 @@ class AIGameController:
         state = []
         state += self.snake.detect_danger()
         #state += self.snake.get_direction()
-        state += self.get_food_direction()
+        #state += self.get_food_direction()
         state += self.get_food_distance()
         #state += self.get_frame_iteration()
         return state
@@ -92,7 +94,8 @@ class AIGameController:
 
     def get_food_distance(self):
 
-        dis = abs(self.snake.coordinates[0][0] - self.food.coordinate[0])/self.scale + abs(self.snake.coordinates[0][1] - self.food.coordinate[1])/self.scale
+        dis1 = ((((self.snake.coordinates[0][0] - self.food.coordinate[0])/self.scale)/GameConfig.Game_Width)/2)+0.5
+        dis2 = ((((self.snake.coordinates[0][1] - self.food.coordinate[1])/self.scale)/GameConfig.Game_Hight)/2)+0.5
         """
         dis_list = [0, 0, 0, 0]
         dis = int(dis)
@@ -105,7 +108,7 @@ class AIGameController:
         dis_list[3] = dis % 2
         """
 
-        dis_list=[int(dis)]
+        dis_list=[dis1,dis2]
         return dis_list
 
 

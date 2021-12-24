@@ -156,37 +156,65 @@ class Snake:
             for i in range(self.game_width):
                 if((x-i*self.scale,y) in self.coordinates[1:] + self.walls):
                     danger[0] = i
+                    break
 
             for i in range(self.game_hight):
                 if((x,y-i*self.scale) in self.coordinates[1:] + self.walls):
-                    danger[1] = 1
-
-            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
-                danger[2] = 1
+                    danger[1] = i
+                    break
+            for i in range(self.game_hight):
+                if((x,y+i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[2] = i
+                    break
 
         elif(self.direction == "right"):
-            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[0] = 1
-            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
-                danger[1] = 1
-            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
-                danger[2] = 1
+            for i in range(self.game_width):
+                if((x+i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[0] = i
+                    break
+
+            for i in range(self.game_hight):
+                if((x,y+i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[1] = i
+                    break
+
+            for i in range(self.game_hight):
+                if((x,y-i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[2] = i
+                    break
 
         elif(self.direction == "up"):
-            if((x,y-self.scale) in self.coordinates[1:] + self.walls):
-                danger[0] = 1
-            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[1] = 1
-            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[2] = 1
+            for i in range(self.game_hight):
+                if((x,y-i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[0] = i
+                    break
+
+            for i in range(self.game_width):
+                if((x+i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[1] = i
+                    break
+
+            for i in range(self.game_width):
+                if((x-i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[2] = i
 
         elif(self.direction == "down"):
-            if((x,y+self.scale) in self.coordinates[1:] + self.walls):
-                danger[0] = 1
-            if((x-self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[1] = 1
-            if((x+self.scale,y) in self.coordinates[1:] + self.walls):
-                danger[2] = 1
+            for i in range(self.game_hight):
+                if((x,y+i*self.scale) in self.coordinates[1:] + self.walls):
+                    danger[0] = i
+                    break
+
+            for i in range(self.game_hight):
+                if((x-i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[1] = i
+                    break
+
+            for i in range(self.game_hight):
+                if((x+i*self.scale,y) in self.coordinates[1:] + self.walls):
+                    danger[2] = i
+                    break
+        for i in range(len(danger)):
+            danger[i] = danger[i]/GameConfig.Game_Hight
 
         return danger
 
