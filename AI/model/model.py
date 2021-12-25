@@ -33,7 +33,9 @@ class QTrainer:
         self.model = model
         self.optimizer = optim.Adam(model.parameters(), lr=self.lr)
         self.criterion = nn.MSELoss()
-        self.scheduler = torch.optim.lr_scheduler.ExponentialLR(self.optimizer, gamma=AIConfig.lr_gamma)
+        lr_lambda = lambda epoch : (AIConfig.lr_gamma**epoch + AIConfig.lr_constant)
+        #self.scheduler = torch.optim.lr_scheduler.ExponentialLR(self.optimizer, gamma=AIConfig.lr_gamma)
+        self.scheduler = torch.optim.lr_scheduler.LambdaLR(self.optimizer, lr_lambda)
 
 
     def train_step(self,state, action, new_state, reward, isEnd):

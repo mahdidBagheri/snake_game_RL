@@ -1,57 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="train3 - finally some good numbers">
-      <change afterPath="$PROJECT_DIR$/runs/run0/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model1.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model1001.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model1201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model601.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/models/model801.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run0/score.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/models/model1.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/models/model201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/models/model401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/models/model601.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run1/score.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/models/model1.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/models/model201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/models/model401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/models/model601.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/models/model801.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run2/score.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1001.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1601.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model1801.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model2001.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model2201.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model2401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model401.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model601.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/models/model801.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/run3/score.png" afterDir="false" />
+    <list default="true" id="beef0e9c-357e-47ca-9d52-fb72b2bd840a" name="Default Changelist" comment="train4 - added scheduler for optimizer and logger">
+      <change afterPath="$PROJECT_DIR$/runs/run10/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model1801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model2001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model2201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run10/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run4/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model1801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model2001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model2201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model2401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model2601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model2801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model3001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model3201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model3401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model3601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run5/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run6/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model1801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model2001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model2201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model2401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model2601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model2801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model3001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model3201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run7/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model1801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model2001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run8/score.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model1001.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model1201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model1401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model1601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model201.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model401.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model601.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/models/model801.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/run9/score.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/AIGameController/AIGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/AIGameController/AIGameController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AI/Helper/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/Helper/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AI/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/model/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/AIConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/AIConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/model.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/score.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssloss.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +279,7 @@
       <workItem from="1640259789297" duration="38499000" />
       <workItem from="1640332578473" duration="43138000" />
       <workItem from="1640417032442" duration="2651000" />
-      <workItem from="1640420935969" duration="9166000" />
+      <workItem from="1640420935969" duration="18214000" />
     </task>
     <task id="LOCAL-00001" summary="create main">
       <created>1640173387919</created>
@@ -315,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640384957509</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="train4 - added scheduler for optimizer and logger">
+      <created>1640431514704</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1640431514704</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,12 +412,13 @@
     <MESSAGE value="train1 - stuck in loop" />
     <MESSAGE value="train2 - still stucks inputing distances" />
     <MESSAGE value="train3 - finally some good numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="train3 - finally some good numbers" />
+    <MESSAGE value="train4 - added scheduler for optimizer and logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="train4 - added scheduler for optimizer and logger" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/snake_game$main_manual__1_.coverage" NAME="main_manual (1) Coverage Results" MODIFIED="1640300287069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake_game$Agent.coverage" NAME="Agent Coverage Results" MODIFIED="1640300611218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AI" />
-    <SUITE FILE_PATH="coverage/snake_game$Agent__1_.coverage" NAME="Agent (1) Coverage Results" MODIFIED="1640429193870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake_game$Agent__1_.coverage" NAME="Agent (1) Coverage Results" MODIFIED="1640460102076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake_game$main.coverage" NAME="main Coverage Results" MODIFIED="1640280773671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

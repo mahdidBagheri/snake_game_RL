@@ -71,7 +71,9 @@ class AIGameController:
             [dist1, dist2] = self.get_food_distance()
             dist1 = abs(dist1-0.5)
             dist2 = abs(dist2-0.5)
-            reward= 0.5/(dist1 + dist2)
+            border_x = abs((self.snake.coordinates[0][0] / self.scale) - ((GameConfig.Game_Width)/2))
+            border_y = abs((self.snake.coordinates[0][1] / self.scale) - ((GameConfig.Game_Hight)/2))
+            reward= AIConfig.food_distance_reward/(dist1 + dist2) + AIConfig.border_reward * (border_x + border_y)
 
 
             return reward, False, self.score

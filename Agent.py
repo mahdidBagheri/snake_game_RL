@@ -110,8 +110,8 @@ def train():
             mean_plot_score.append(mean_score)
             moving_average.append(np.mean(plot_score[:200]))
 
-            #saver.save(agent, [[mean_plot_score, "mean_plot_score"], [plot_score, "score"], [moving_average, "moving_average(200)"]], [[loss_mean, "mean_loss"]])
-            saver.save(agent, [[mean_plot_score, "mean_plot_score"], [plot_score, "score"]], [[loss_mean, "mean_loss"]])
+            saver.save(agent, [[mean_plot_score, "mean_plot_score"], [plot_score, "score"], [moving_average, "moving_average(200)"]], [[loss_mean, "mean_loss"]])
+            #saver.save(agent, [[mean_plot_score, "mean_plot_score"], [plot_score, "score"]], [[loss_mean, "mean_loss"]])
             saver.log(log_data)
 
         game_controller.wait()
@@ -129,11 +129,14 @@ class Saver():
         data += f"epsilon_decay , {AIConfig.epsilon_decay}, "
         data += f"lr_schedular , {AIConfig.lr_schedular}, "
         data += f"LR , {AIConfig.LR}, "
+        data += f"lr_constant , {AIConfig.lr_constant}, "
         data += f"LR_gamma , {AIConfig.lr_gamma}, "
         data += f"Max_Memory , {AIConfig.Max_Memory}, "
         data += f"batch_size , {AIConfig.batch_size}, "
         data += f"punish , {AIConfig.punish}, "
         data += f"long_stay_punish , {AIConfig.long_stay_punish}, "
+        data += f"food_distance_reward , {AIConfig.food_distance_reward}, "
+        data += f"border_reward , {AIConfig.border_reward}, "
         data += f"input_size , {AIConfig.input_size}, "
         data += f"hidden1_size , {AIConfig.hidden1_size}, "
         data += f"output_size , {AIConfig.output_size}, "
