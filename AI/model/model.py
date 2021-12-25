@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import os
+from Config import AIConfig
 
 class Linear_QNet(nn.Module):
     def __init__(self, input_size, hidden1_size, hidden2_size  , output_size):
@@ -17,12 +18,12 @@ class Linear_QNet(nn.Module):
         x = self.Linear2(x)
         return x
 
-    def save(self,file_name="model.pth" ):
-        model_folder_path = "./model"
-        if not os.path.exists(model_folder_path):
-            os.mkdir(model_folder_path)
+    def save(self,root_path,file_name="model.pth" ):
+        file_path = root_path + "models/"
+        if not os.path.exists(file_path):
+            os.mkdir(file_path)
 
-        file_name = os.path.join(model_folder_path, file_name)
+        file_name = os.path.join(file_path, file_name)
         torch.save(self.state_dict(), file_name)
 
 class QTrainer:
@@ -32,6 +33,8 @@ class QTrainer:
         self.model = model
         self.optimizer = optim.Adam(model.parameters(), lr=self.lr)
         self.criterion = nn.MSELoss()
+        self.scheduler = torch.optim.lr_scheduler.ExponentialLR(self.optimizer, gamma=AIConfig.lr_gamma)
+
 
     def train_step(self,state, action, new_state, reward, isEnd):
         state = torch.tensor(state, dtype=torch.float)
@@ -60,8 +63,11 @@ class QTrainer:
         loss.backward()
 
         self.optimizer.step()
+        #self.scheduler.step()
 
-        return loss
+        lr = self.optimizer.param_groups[0]['lr']
+
+        return loss , lr
 
 
 
